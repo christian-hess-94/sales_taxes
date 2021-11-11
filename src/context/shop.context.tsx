@@ -6,29 +6,34 @@ export interface ShopItem {
   price: number;
   type: "Book" | "Food" | "Medical Product" | string;
   imported: boolean;
+  quantity: number;
 }
 
 interface ShopContextData {
-  items: ShopItem[];
+  shopItems: ShopItem[];
+  setShopItems: (i: ShopItem[]) => void;
   addItem: (i: ShopItem) => void;
 }
-const DEFAULT_GRID_CONTEXT_DATA: ShopContextData = {
-  items: [],
+const DEFAULT_SHOP_CONTEXT_DATA: ShopContextData = {
+  shopItems: [],
   addItem: () => null,
+  setShopItems: () => null,
 };
-const ShopContext = createContext<ShopContextData>(DEFAULT_GRID_CONTEXT_DATA);
+const ShopContext = createContext<ShopContextData>(DEFAULT_SHOP_CONTEXT_DATA);
 
 const { Provider } = ShopContext;
 
 export const ShopProvider: React.FC = ({ children }) => {
-  const [items, setItems] = useState<ShopItem[]>([]);
+  const [shopItems, setShopItems] = useState<ShopItem[]>([]);
 
   const addItem = (i: ShopItem) => {
-    const newItems = items;
+    const newItems = [...shopItems];
     newItems.push(i);
-    setItems(newItems);
+    setShopItems(newItems);
   };
-  return <Provider value={{ items, addItem }}>{children}</Provider>;
+  return (
+    <Provider value={{ shopItems, addItem, setShopItems }}>{children}</Provider>
+  );
 };
 
 const useShop = (): ShopContextData => {

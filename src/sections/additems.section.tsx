@@ -5,11 +5,12 @@ import TextInput from "../components/TextInput";
 import useShop from "../context/shop.context";
 
 const AddItemsSection = () => {
-  const { items, addItem } = useShop();
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("0");
-  const [type, setType] = useState("Other");
+  const { shopItems: items, addItem } = useShop();
+  const [name, setName] = useState("Book");
+  const [price, setPrice] = useState("12.49");
+  const [type, setType] = useState("Book");
   const [imported, setImported] = useState(false);
+  const [quantity, setQuantity] = useState("1");
   return (
     <GS.StyledContainer>
       <GS.StyledGridRow>
@@ -19,6 +20,12 @@ const AddItemsSection = () => {
           label="Price"
           value={price}
           changeValue={setPrice}
+        />
+        <TextInput
+          type="number"
+          label="Quantity"
+          value={quantity}
+          changeValue={setQuantity}
         />
       </GS.StyledGridRow>
       <GS.StyledGridRow>
@@ -32,15 +39,24 @@ const AddItemsSection = () => {
           style={{ minHeight: "3em", margin: "auto" }}
           onChange={(e) => setType(e.target.value)}
         >
+          <option disabled>Choose Type</option>
           <option value="Other">Other</option>
-          <option value="Book">Book</option>
+          <option value="Book" selected>
+            Book
+          </option>
           <option value="Food">Food</option>
           <option value="Medical Products">Medical Products</option>
         </select>
       </GS.StyledGridRow>
       <Button
         onClick={() =>
-          addItem({ name, price: parseFloat(price), imported, type })
+          addItem({
+            name,
+            price: parseFloat(price),
+            imported,
+            type,
+            quantity: parseInt(quantity),
+          })
         }
         label="Confirm Item"
       />
