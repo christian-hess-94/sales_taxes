@@ -1,25 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import * as GS from "./global-styles";
+import Providers from "./providers";
+import AddItemsSection from "./sections/additems.section";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GS.App>
+      <Providers>
+        <AddItemsSection />
+        <GS.StyledFlexContainer></GS.StyledFlexContainer>
+      </Providers>
+    </GS.App>
   );
 }
 
