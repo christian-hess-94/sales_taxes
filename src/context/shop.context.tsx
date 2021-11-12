@@ -4,7 +4,7 @@ import { createContext } from "react";
 export interface ShopItem {
   name: string;
   price: number;
-  type: "Book" | "Food" | "Medical Product" | string;
+  type: "Book" | "Food" | "Medical Product" | "Other";
   imported: boolean;
   quantity: number;
 }

@@ -8,8 +8,10 @@ const AddItemsSection = () => {
   const { shopItems: items, addItem } = useShop();
   const [name, setName] = useState("Book");
   const [price, setPrice] = useState("12.49");
-  const [type, setType] = useState("Book");
-  const [imported, setImported] = useState(false);
+  const [type, setType] = useState<
+    "Book" | "Food" | "Medical Product" | "Other"
+  >("Other");
+  const [imported, setImported] = useState(true);
   const [quantity, setQuantity] = useState("1");
   return (
     <GS.StyledContainer>
@@ -31,19 +33,22 @@ const AddItemsSection = () => {
       <GS.StyledGridRow>
         <TextInput
           type="checkbox"
-          label="Price"
-          value={price}
+          label="Imported?"
+          checked={imported}
           changeChecked={setImported}
         />
         <select
+          value={type}
           style={{ minHeight: "3em", margin: "auto" }}
-          onChange={(e) => setType(e.target.value)}
+          onChange={(e) =>
+            setType(
+              e.target.value as "Book" | "Food" | "Medical Product" | "Other"
+            )
+          }
         >
           <option disabled>Choose Type</option>
           <option value="Other">Other</option>
-          <option value="Book" selected>
-            Book
-          </option>
+          <option value="Book">Book</option>
           <option value="Food">Food</option>
           <option value="Medical Products">Medical Products</option>
         </select>

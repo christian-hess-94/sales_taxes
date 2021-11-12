@@ -8,16 +8,19 @@ interface Props {}
 
 const ListItemsSection: React.FC<Props> = (props) => {
   const { shopItems } = useShop();
-  const { calculateReceipt } = useReceipt();
+  const { calculateReceipt, setReceiptItems } = useReceipt();
   return (
     <GS.StyledFlexContainer>
       <Button
         label="Calculate receipt"
         disabled={!shopItems.length}
-        onClick={calculateReceipt}
+        onClick={() => {
+          setReceiptItems([]);
+          calculateReceipt();
+        }}
       />
-      {shopItems.map((item) => (
-        <ShopListItem item={item} />
+      {shopItems.map((item, index) => (
+        <ShopListItem key={index} item={item} />
       ))}
     </GS.StyledFlexContainer>
   );

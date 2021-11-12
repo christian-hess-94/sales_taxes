@@ -3,6 +3,7 @@ import * as S from "./styles";
 interface TextInputProps {
   label?: string;
   value?: string;
+  checked?: boolean;
   changeValue?: (s: string) => void;
   changeChecked?: (c: boolean) => void;
   type?: React.HTMLInputTypeAttribute;
@@ -14,6 +15,7 @@ const TextInput = ({
   changeValue,
   type,
   changeChecked,
+  checked,
 }: TextInputProps) => {
   return (
     <S.TextInputContainer>
@@ -21,6 +23,7 @@ const TextInput = ({
       <S.StyledInput
         type={type}
         value={value}
+        checked={checked}
         onChange={(e) => {
           if (!!changeChecked) {
             if (type === "checkbox") {

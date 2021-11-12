@@ -24,6 +24,13 @@ export const StyledFlexContainer = styled.div`
   margin: 0.2em;
   border: 2px solid gray;
 `;
+export const StyledFlexContainerNoBorder = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0.2em;
+  margin: 0.2em;
+`;
 
 export const StyledGridRow = styled.section`
   display: flex;
