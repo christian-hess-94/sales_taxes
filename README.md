@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+# How to install and run
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Install NodeJS and yarn
+1. Run the "yarn" command to install dependencies
+1. After the installation is finished, run "yarn start" to run the project on port 3000
 
-## Available Scripts
+## Explanation
 
-In the project directory, you can run:
+This project calculates the taxes based if a product is of an specific type (5%) or if it's imported (10%).
+The taxes are accumulative, and the value increments and is stored everytime the receipt it calculated
+To make the rounding to the nearest five cents, the following algorithm is used:
 
-### `yarn start`
+Example:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- The product's imported and it's retail price is 38,10
+- There are two products being purchased (38,10 \* 2 = 76.20)
+- Since the product is imported, the tax is 10% on the full sum (7.62)
+- Retrieve the cents (62)
+- Get how many cents it passed from the last fifth increment (62 % 5 = 2)
+- Add the difference from that to 5 (5 - 2 = 3)
+- Add that number to the cents value to round it to the next five cents. (62 + 3 = 0.65)
+- The final tax is 7.65
+- Add the new tax to the product's retail price ((38,10 + 7,65) \* 2 = 83,85)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The project use the ContextAPI to store the values.
+There are two contexts:
 
-### `yarn test`
+- One for the ShopItems (before taxes)
+- One for ReceiptItems which gets populated after the button press.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+All styles and components were custom made using styled-components. The project is uses flexbox for positioning.
