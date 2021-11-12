@@ -4,6 +4,10 @@
 1. Run the "yarn" command to install dependencies
 1. After the installation is finished, run "yarn start" to run the project on port 3000
 
+## Github Page
+
+[Click here](https://christian-hess-94.github.io/sales_taxes/) to check this project running in it's Github Page.
+
 ## Explanation
 
 This project calculates the taxes based if a product is of an specific type (5%) or if it's imported (10%).
