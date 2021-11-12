@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/sales_taxes/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/sales_taxes/static/js/main.1f91fe4b.chunk.js",
+    "main.js.map": "/sales_taxes/static/js/main.1f91fe4b.chunk.js.map",
+    "runtime-main.js": "/sales_taxes/static/js/runtime-main.451fb29e.js",
+    "runtime-main.js.map": "/sales_taxes/static/js/runtime-main.451fb29e.js.map",
+    "static/js/2.c0b3b667.chunk.js": "/sales_taxes/static/js/2.c0b3b667.chunk.js",
+    "static/js/2.c0b3b667.chunk.js.map": "/sales_taxes/static/js/2.c0b3b667.chunk.js.map",
+    "static/js/3.45c66640.chunk.js": "/sales_taxes/static/js/3.45c66640.chunk.js",
+    "static/js/3.45c66640.chunk.js.map": "/sales_taxes/static/js/3.45c66640.chunk.js.map",
+    "index.html": "/sales_taxes/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/sales_taxes/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.c0b3b667.chunk.js.LICENSE.txt": "/sales_taxes/static/js/2.c0b3b667.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.451fb29e.js",
+    "static/js/2.c0b3b667.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.1f91fe4b.chunk.js"
+  ]
+}
