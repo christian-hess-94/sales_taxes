@@ -5,7 +5,7 @@ import TextInput from "../components/TextInput";
 import useShop from "../context/shop.context";
 
 const AddItemsSection = () => {
-  const { shopItems: items, addItem } = useShop();
+  const { addItem } = useShop();
   const [name, setName] = useState("Book");
   const [price, setPrice] = useState("12.49");
   const [type, setType] = useState<

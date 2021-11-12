@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../components/button";
 import ReceiptListItem from "../components/receiptItem";
 import Typography from "../components/typography";
 import useReceipt from "../context/receipt.context";

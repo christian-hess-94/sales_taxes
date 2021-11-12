@@ -34,7 +34,7 @@ const { Provider } = ReceiptContext;
 export const ReceiptProvider: React.FC = ({ children }) => {
   const { shopItems } = useShop();
   const [receiptItems, setReceiptItems] = useState<ReceiptItem[]>([]);
-  const [totalTax, setTotalTax] = useState(0);
+  const [totalTax] = useState(0);
 
   const calculateTaxPercentage = (shopItem: ShopItem) => {
     let tax = 0;
